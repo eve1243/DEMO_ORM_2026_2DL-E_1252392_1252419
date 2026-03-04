@@ -12,6 +12,7 @@ import isep.eapli.demo_orm.util.Console;
  * @author mcn
  */
 public class MainMenu {
+	static CarGroupUI ui = new CarGroupUI();
     public static void mainLoop() {
 		int opcao = 0;
 		do {
@@ -20,13 +21,14 @@ public class MainMenu {
 			switch (opcao) {
 				case 0:
 					System.out.println("fim ...");
+					ui.close();
 					break;
 				case 1:
-					System.out.println("Ainda não implementado ...");
+					ui.registerCG();
 					break;
 
 				case 2:
-					System.out.println("Ainda não implementado ...");
+					ui.listAllCG();
 					break;
 
 				
