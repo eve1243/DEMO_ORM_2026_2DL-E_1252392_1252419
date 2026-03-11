@@ -11,32 +11,36 @@ public class Car {
     private int manifactureYear;
     private int aquisitionYear;
     private String enginedisplacement;
+
     @ManyToOne
-    @JoinColumn(name = "car_group_id")
-    private CarGroup carGroup;
+    private GroupCar groupCar;
+
+    public GroupCar getGroupCar() {
+        return groupCar;
+    }
+
+    public void setGroupCar(GroupCar groupCar) {
+        this.groupCar = groupCar;
+    }
 
     public Car() {
     }
 
     public Car(String licensePlate, int manifactureYear, int aquisitionYear,
-               String enginedisplacement, CarGroup carGroup) {
+               String enginedisplacement, GroupCar groupCar) {
         this.licensePlate = licensePlate;
         this.manifactureYear = manifactureYear;
         this.aquisitionYear = aquisitionYear;
         this.enginedisplacement = enginedisplacement;
-        this.carGroup = carGroup;
+        this.groupCar = groupCar;
     }
 
 
     @Override
     public String toString() {
-        return "Car{" +
-                "id=" + id +
-                ", licensePlate='" + licensePlate + '\'' +
+        return  "licensePlate='" + licensePlate + '\'' +
                 ", manifactureYear=" + manifactureYear +
                 ", aquisitionYear=" + aquisitionYear +
-                ", enginedisplacement='" + enginedisplacement + '\'' +
-                ", carGroup=" + (carGroup != null ? carGroup.getGroupName() : "null") +
-                '}';
+                ", enginedisplacement='" + enginedisplacement + '\'' ;
     }
 }

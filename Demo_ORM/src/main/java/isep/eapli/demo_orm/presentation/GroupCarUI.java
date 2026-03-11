@@ -1,25 +1,25 @@
 package isep.eapli.demo_orm.presentation;
 
-import isep.eapli.demo_orm.domain.CarGroup;
-import isep.eapli.demo_orm.persistence.CarGroupRepository;
-import isep.eapli.demo_orm.persistence.CarGroupRepositoryJPA;
+import isep.eapli.demo_orm.domain.GroupCar;
+import isep.eapli.demo_orm.persistence.GroupCarRepository;
+import isep.eapli.demo_orm.persistence.GroupCarController;
 import isep.eapli.demo_orm.util.Console;
 
 import java.util.List;
 
 /**
- * UI für CarGroup-Operationen
+ * UI für GroupCar-Operationen
  */
-public class CarGroupUI {
-    private final CarGroupRepository repository;
+public class GroupCarUI {
+    private final GroupCarRepository repository;
 
-    public CarGroupUI() {
-        this.repository = new CarGroupRepositoryJPA();
+    public GroupCarUI() {
+        this.repository = new GroupCarController();
     }
 
 
     public void registerCG() {
-        System.out.println("\n=== Registring new Cargroups. ===");
+        System.out.println("\n=== Registring new Groupcars. ===");
 
         String groupName = Console.readLine("Groupname: ");
         int numOfDoors = Console.readInteger("Number of Doors: ");
@@ -31,54 +31,54 @@ public class CarGroupUI {
         System.out.println("3. Commercial");
         int classTypeChoice = Console.readInteger("Choose a classtype (1-3): ");
 
-        CarGroup.ClassType classType;
+        GroupCar.ClassType classType;
         switch (classTypeChoice) {
             case 1:
-                classType = CarGroup.ClassType.Utility;
+                classType = GroupCar.ClassType.Utility;
                 break;
             case 2:
-                classType = CarGroup.ClassType.Luxury;
+                classType = GroupCar.ClassType.Luxury;
                 break;
             case 3:
-                classType = CarGroup.ClassType.Commercial;
+                classType = GroupCar.ClassType.Commercial;
                 break;
             default:
                 System.out.println("Not recocnized. Standard: Utility");
-                classType = CarGroup.ClassType.Utility;
+                classType = GroupCar.ClassType.Utility;
         }
 
         try {
-            CarGroup carGroup = new CarGroup(groupName, numOfDoors, pricePerDay, classType);
-            repository.save(carGroup);
-            System.out.println("\n✓ Cargroup registered!");
-            System.out.println(carGroup);
+            GroupCar groupCar = new GroupCar(groupName, numOfDoors, pricePerDay, classType);
+            repository.save(groupCar);
+            System.out.println("\n✓ Groupcar registered!");
+            System.out.println(groupCar);
         } catch (Exception e) {
-            System.err.println("✗ Error registering CarGroup: " + e.getMessage());
+            System.err.println("✗ Error registering GroupCar: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
     /**
-     * Listet alle CarGroups auf
+     * Listet alle Groupcars auf
      */
     public void listAllCG() {
         System.out.println("\n=== All Groups of Cars ===");
 
         try {
-            List<CarGroup> carGroups = repository.findAll();
+            List<GroupCar> groupCars = repository.findAll();
 
-            if (carGroups.isEmpty()) {
-                System.out.println("No CarGroups where found.");
+            if (groupCars.isEmpty()) {
+                System.out.println("No Groupcars where found.");
             } else {
-                System.out.println("Found CarGroups: " + carGroups.size());
+                System.out.println("Found Groupcars: " + groupCars.size());
                 System.out.println("-".repeat(80));
-                for (CarGroup cg : carGroups) {
+                for (GroupCar cg : groupCars) {
                     System.out.println(cg);
                 }
                 System.out.println("-".repeat(80));
             }
         } catch (Exception e) {
-            System.err.println("✗ Error with loading der CarGroups: " + e.getMessage());
+            System.err.println("✗ Error with loading der Groupcars: " + e.getMessage());
             e.printStackTrace();
         }
     }

@@ -3,7 +3,7 @@ package isep.eapli.demo_orm.domain;
 import jakarta.persistence.*;
 
 @Entity
-public class CarGroup {
+public class GroupCar {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
@@ -12,12 +12,15 @@ public class CarGroup {
     private int pricePerDay;
     public enum ClassType {Utility, Luxury, Commercial}
 
+    @OneToMany(mappedBy = "groupCar", cascade = CascadeType.ALL)
+    private java.util.List<Car> cars;
+
     @Enumerated(EnumType.STRING)
     private ClassType classType;
 
-    public CarGroup() {}
+    public GroupCar() {}
 
-    public CarGroup(String groupName, int numOfDoors, int pricePerDay, ClassType classType) {
+    public GroupCar(String groupName, int numOfDoors, int pricePerDay, ClassType classType) {
         this.groupName = groupName;
         this.numOfDoors = numOfDoors;
         this.pricePerDay = pricePerDay;
@@ -63,12 +66,10 @@ public class CarGroup {
 
     @Override
     public String toString() {
-        return "CarGroup{" +
-                "id=" + id +
-                ", groupName='" + groupName + '\'' +
-                ", numOfDoors=" + numOfDoors +
-                ", pricePerDay=" + pricePerDay +
-                ", classType=" + classType +
+        return "GroupCar='" + groupName + '\'' +
+                ", Number of doors= " + numOfDoors +
+                ", Price per day= " + pricePerDay +"€"+
+                ", Type= " + classType +
                 '}';
     }
 }
