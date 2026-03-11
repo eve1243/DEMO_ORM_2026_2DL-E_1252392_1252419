@@ -2,8 +2,8 @@ package isep.eapli.demo_orm.presentation;
 
 import isep.eapli.demo_orm.domain.Car;
 import isep.eapli.demo_orm.domain.GroupCar;
-import isep.eapli.demo_orm.persistence.CarConroller;
-import isep.eapli.demo_orm.persistence.GroupCarController;
+import isep.eapli.demo_orm.application.CarConroller;
+import isep.eapli.demo_orm.application.GroupCarController;
 import isep.eapli.demo_orm.util.Console;
 
 import java.util.List;
@@ -13,11 +13,9 @@ import java.util.List;
  */
 public class CarUI {
     private final CarConroller carController;
-    private final GroupCarController groupCarController;
 
     public CarUI() {
         this.carController = new CarConroller();
-        this.groupCarController = new GroupCarController();
     }
 
     /**
@@ -28,7 +26,7 @@ public class CarUI {
 
         try {
             // Zuerst alle verfügbaren GroupCars anzeigen
-            List<GroupCar> groupCars = groupCarController.findAll();
+            List<GroupCar> groupCars = carController.getAllGroupCars();
 
             if (groupCars.isEmpty()) {
                 System.out.println("✗ No Car Groups available. Please create a Car Group first.");
@@ -123,10 +121,9 @@ public class CarUI {
     }
 
     /**
-     * Schließt die Controller
+     * Schließt den Controller
      */
     public void close() {
         carController.close();
-        groupCarController.close();
     }
 }

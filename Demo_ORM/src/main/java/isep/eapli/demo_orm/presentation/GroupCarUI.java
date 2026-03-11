@@ -1,8 +1,7 @@
 package isep.eapli.demo_orm.presentation;
 
 import isep.eapli.demo_orm.domain.GroupCar;
-import isep.eapli.demo_orm.persistence.GroupCarRepository;
-import isep.eapli.demo_orm.persistence.GroupCarController;
+import isep.eapli.demo_orm.application.GroupCarController;
 import isep.eapli.demo_orm.util.Console;
 
 import java.util.List;
@@ -11,10 +10,10 @@ import java.util.List;
  * UI für GroupCar-Operationen
  */
 public class GroupCarUI {
-    private final GroupCarRepository repository;
+    private final GroupCarController controller;
 
     public GroupCarUI() {
-        this.repository = new GroupCarController();
+        this.controller = new GroupCarController();
     }
 
 
@@ -49,7 +48,7 @@ public class GroupCarUI {
 
         try {
             GroupCar groupCar = new GroupCar(groupName, numOfDoors, pricePerDay, classType);
-            repository.save(groupCar);
+            controller.save(groupCar);
             System.out.println("\n✓ Groupcar registered!");
             System.out.println(groupCar);
         } catch (Exception e) {
@@ -65,7 +64,7 @@ public class GroupCarUI {
         System.out.println("\n=== All Groups of Cars ===");
 
         try {
-            List<GroupCar> groupCars = repository.findAll();
+            List<GroupCar> groupCars = controller.findAll();
 
             if (groupCars.isEmpty()) {
                 System.out.println("No Groupcars where found.");
@@ -84,9 +83,9 @@ public class GroupCarUI {
     }
 
     /**
-     * Schließt das Repository
+     * Schließt den Controller
      */
     public void close() {
-        repository.close();
+        controller.close();
     }
 }
