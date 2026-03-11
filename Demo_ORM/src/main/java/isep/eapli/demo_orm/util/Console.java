@@ -72,7 +72,7 @@ public class Console {
     public static int readOption(int low, int high, int exit) {
         int option;
         do {
-            option = Console.readInteger("Introduza opção: ");
+            option = Console.readInteger("Enter option: ");
             if (option == exit) {
                 break;
             }

@@ -20,7 +20,7 @@ public class MainMenu {
 
 			switch (opcao) {
 				case 0:
-					System.out.println("fim ...");
+					System.out.println("end ...");
 					ui.close();
 					break;
 				case 1:
@@ -34,7 +34,7 @@ public class MainMenu {
 				
 				
 				default:
-					System.out.println("opcao não reconhecida.");
+					System.out.println("option not recognized.");
 					break;
 			}
 		} while (opcao != 0);
@@ -47,12 +47,12 @@ public class MainMenu {
 		System.out.println("=============================");
 		System.out.println(" Rent a Car ");
 		System.out.println("=============================\n");
-		System.out.println("1.Registar Grupo Automóvel");
-		System.out.println("2.Listar todos os Grupos Automóveis");          
+		System.out.println("1.Register a Cargroup");
+		System.out.println("2.List of all CarGroups");
 		
         System.out.println("=============================");
-        System.out.println("0. Sair\n\n");
-		option = Console.readInteger("Por favor escolha opção");
+        System.out.println("0. Exit\n\n");
+		option = Console.readInteger("Please select an option");
 		return option;
 	}
 }

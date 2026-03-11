@@ -37,7 +37,7 @@ public class CarGroupRepositoryJPA implements CarGroupRepository {
             if (em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
             }
-            throw new RuntimeException("Fehler beim Speichern der CarGroup", e);
+            throw new RuntimeException("Error saving the CarGroup", e);
         }
     }
 

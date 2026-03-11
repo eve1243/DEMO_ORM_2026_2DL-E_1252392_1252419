@@ -27,50 +27,6 @@ public class Car {
         this.carGroup = carGroup;
     }
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
-    }
-
-    public String getLicensePlate() {
-        return licensePlate;
-    }
-
-    public void setLicensePlate(String licensePlate) {
-        this.licensePlate = licensePlate;
-    }
-
-    public int getManifactureYear() {
-        return manifactureYear;
-    }
-
-    public void setManifactureYear(int manifactureYear) {
-        this.manifactureYear = manifactureYear;
-    }
-
-    public int getAquisitionYear() {
-        return aquisitionYear;
-    }
-
-    public void setAquisitionYear(int aquisitionYear) {
-        this.aquisitionYear = aquisitionYear;
-    }
-
-    public String getEnginedisplacement() {
-        return enginedisplacement;
-    }
-
-    public void setEnginedisplacement(String enginedisplacement) {
-        this.enginedisplacement = enginedisplacement;
-    }
-
-    public CarGroup getCarGroup() {
-        return carGroup;
-    }
-
-    public void setCarGroup(CarGroup carGroup) {
-        this.carGroup = carGroup;
-    }
 
     @Override
     public String toString() {
