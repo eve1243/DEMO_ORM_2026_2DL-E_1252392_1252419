@@ -69,7 +69,6 @@ public class GroupCar {
         return "GroupCar='" + groupName + '\'' +
                 ", Number of doors= " + numOfDoors +
                 ", Price per day= " + pricePerDay +"€"+
-                ", Type= " + classType +
-                '}';
+                ", Type= " + classType +                 '}';
     }
 }

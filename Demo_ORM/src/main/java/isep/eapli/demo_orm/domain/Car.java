@@ -41,6 +41,6 @@ public class Car {
         return  "licensePlate='" + licensePlate + '\'' +
                 ", manifactureYear=" + manifactureYear +
                 ", aquisitionYear=" + aquisitionYear +
-                ", enginedisplacement='" + enginedisplacement + '\'' ;
+                ", enginedisplacement='" + enginedisplacement + '\'' +" GroupCar= " + groupCar.getGroupName() ;
     }
 }
